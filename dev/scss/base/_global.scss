@@ -1,0 +1,714 @@
+*{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+.row{
+	max-width: 1145px;
+}
+
+// ===== UTILITY =====
+.text-center{
+	text-align: center;
+}
+
+.text-left{
+	text-align: left;
+}
+
+.text-right{
+	text-align: right;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
+.toggle-fixed{
+	position: fixed !important;
+}
+
+// ===== COMMON ELEMENTS =====
+.btn{
+	display: inline-block;
+	padding: 12px 35px;
+	//width: 220px;
+	@include transition(all 0.3s ease-in-out);
+	opacity: 1;
+	text-transform: uppercase;
+	font-size: 14px;
+	line-height: 1.5;
+	&:hover{
+		opacity: 1;
+	}
+}
+
+.btn-white{
+	border: 1px solid $white;
+	background: #fff;
+	color: $primary-color;
+
+	&:hover{
+		opacity: 0.8;
+	}
+}
+
+.btn-white--ghost{
+	border: 1px solid $white;
+
+	&:hover{
+		background: $white;
+		color: $primary-color;
+	}
+}
+
+.btn-blue--ghost{
+	border: 1px solid $primary-color;
+
+	&:hover{
+		background: $primary-color;
+		color: $white;
+	}
+}
+
+.scroll-to-top{
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background: #fff;
+	text-align: center;
+	line-height: 1;
+	padding: 9px 13px;
+	font-size: 35px;
+	opacity: 0.6;
+
+	span{
+		display: block;
+    	font-size: 12px;
+    	font-weight: bold;
+    	padding: 1px 0;
+	}
+}
+
+hr{	
+	border: none;
+	border-top: 1px solid $primary-color;
+	width: 105px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+// ===== MOBILE NAV =====
+
+.navigation{
+	display: none;
+	@include desktop{
+		display: block;
+	}
+}
+
+.mobile-nav-container {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background: $primary-dark;
+	opacity: 0;
+	visibility: hidden;
+	@include transition(opacity 0.4s ease-in 0s,visibility 0s ease-in 0.4s);
+	z-index: 100;
+
+	&.open{
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.4s;		
+	}
+
+	.mobile-nav{
+		text-align: center;
+		position: relative;
+		top: 40%;
+		height: 60%;
+		font-size: 35px;
+		@include transform(translateY(-50%));
+
+		a{
+			color: #fff;
+		}	
+	}
+
+	.mobile-nav-utility{
+		margin: 50px 0;
+	}
+}
+
+.close-btn{ 
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	overflow: hidden;
+	border: medium none;
+	background: transparent;
+	outline: medium none;
+	z-index: 100;	
+	font-size: 35px;
+	color: #fff;
+	display: block;
+	opacity: 0.9;
+
+	&:hover{
+		cursor: pointer;
+	}
+
+	@include tablet{
+		display: block;
+	}
+	@include desktop{
+		display: none;
+	}
+
+}
+
+// ===== HEADER =====
+header{
+	background-image: url(../img/main_hero.jpg);
+	background-repeat: no-repeat;
+	background-position-y: center;
+	background-position-x: center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	
+	.services &{
+		background-image: url(../img/services/services_header.jpg);
+	}
+
+	.products &{
+		background-image: url(../img/software/software_header.jpg);
+	}
+
+	.careers &{
+		background-image: url(../img/careers/careers_header.jpg);
+	}
+
+	.contact &{
+		background-image: url(../img/contact/contact_header.jpg);
+	}
+
+	*{
+		color: $white;
+	}
+
+	.line{
+		width: 100%;
+		@include clearfix;
+		height: 1px;
+		background: $white;
+		opacity: 0.5;
+	}
+
+	.columns{
+
+		.row{
+			@include clearfix;
+		}
+	} 
+
+	.logo{
+		width: 150px;
+		float: left;
+
+		img{
+			padding-top: 3px;
+		}
+	}
+
+	nav{
+		display: block;
+		padding: 20px 0;
+
+		@include mobile{
+			padding-left: 25px;
+		}
+		@include tablet{
+			padding-left: 25px;
+		}
+		.main-menu{
+			padding-top: 5px;
+			float: right;
+			margin-right: 50px;
+
+			ul{
+				display: block;
+				li{
+					display: inline-block;
+
+					a{	
+						display: inline-block;
+						font-size: 16px;
+						font-weight: 400;
+						color: $white;
+						margin-right: 35px;
+						padding-bottom: 4px;
+
+						&:hover, &.current{
+							opacity: 1;
+							border-bottom: 1px solid #fff;
+						}
+					}
+				}
+			}			
+		}
+
+		.nav-utility{
+			padding-top: 5px;
+			float: right;
+
+			ul{
+				display: block;
+				li{
+					display: inline-block;
+
+					a{	
+						display: inline-block;
+						font-size: 16px;
+						font-weight: 400; 
+						color: $white;
+						margin-right: 35px;
+						padding-bottom: 4px;
+
+						&:hover{
+							opacity: 1;
+							border-bottom: 1px solid #fff;
+						}
+
+						&.btn{
+							padding: 5px 30px;
+							font-size: 14px;
+							width: initial;
+						}
+					}
+				}
+			}			
+		}
+
+	}
+
+	.hero{
+		padding: 150px 0;
+
+		@include mobile{
+			padding: 30px 0;
+		}
+	}
+
+	.hero.short{
+		padding: 50px 0; 
+	}
+
+	.masthead{
+
+		@include mobile{
+			h1{
+				font-size: 45px;
+				line-height: 1.1;
+			}
+		}
+	}
+
+	.masthead-cta{
+
+		.btn{
+			margin-right: 30px;
+
+			&:last-child{
+				margin-right: 0;
+			}
+			@include mobile{
+		    	margin-right: 0;
+		    	margin-bottom: 30px;
+		    }
+		}
+	}
+} 
+
+// ===== SECTION - common =====
+section{
+	position: relative;
+	padding: 60px 0;
+	text-align: center;
+
+	.products &, .services &{
+		border-bottom: 1px solid $light-gray;
+	}
+
+	&.two-col--boxed{
+		margin-bottom: 60px;
+		padding-top: 0;
+		padding-bottom: 0;
+
+		.columns{
+			padding-top: 60px;
+			padding-bottom: 60px;
+		}
+
+		.columns:first-child{
+			border-right: 1px solid $light-gray;
+
+			@include mobile{
+				border-right: none;
+			}
+		}
+	}
+
+	&.feature-row{
+
+		@include desktop{
+			.feature-col--text{
+				text-align: left;
+
+				p:last-child{
+					margin-bottom: 0;
+				}
+			}
+
+			&:nth-child(odd){
+				.feature-col--text{
+
+				}
+				.feature-col--image{
+					float: right;
+				}
+			}
+		}
+
+		.feature-col{
+
+			hr{
+				display: inline-block;
+			}
+
+			img{
+				display: block;
+				padding: 0;
+				width: 100%;
+				max-width: 350px;
+				margin: 0 auto;
+				margin-bottom: 35px;
+
+				@include desktop{
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	.logo-list{
+
+		li{
+			height: 60px;
+			line-height: 60px;
+			text-align: center;
+		}	
+	}
+
+	@include mobile{ 
+
+		.logo-list{
+
+			li{
+				margin-bottom: 30px;
+
+				&:last-child{
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+
+	.content-block-list--three-col{
+		display: block;
+		position: relative;
+		width: 100%;
+		margin-top: 40px;
+
+		li{	
+			@include mobile{
+		    	width: 100%;
+		    }
+		    @include tablet{
+		    	width: 49%;
+		    }
+		    @include desktop{
+				width: 33%;
+			}
+		    
+			margin-bottom: 70px;
+		    display: inline-block;
+		    vertical-align: top;
+		    padding: 0px 20px;
+		    *display: inline;
+		    *zoom: 1;
+
+
+		    .img-holder{
+			    height: 80px;
+			    line-height: 80px;
+
+			    img{
+			    	vertical-align: bottom;
+			    }
+		    }
+
+			p{
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.content-block-list--four-col{
+		display: block;
+		position: relative;
+		width: 100%;
+		margin-top: 40px;
+
+		li{
+			@include mobile{
+		    	width: 100%;
+		    }
+		    @include tablet{
+		    	width: 49%;
+		    }
+		    @include desktop{
+				width: 24%;
+			}
+			margin-bottom: 70px;
+		    display: inline-block;
+		    padding: 0px 20px;
+		    vertical-align: top;
+		    *display: inline;
+		    *zoom: 1;
+
+		    .img-holder{
+			    height: 80px;
+			    line-height: 80px;
+
+			    img{
+			    	vertical-align: bottom;
+			    }
+		    }
+
+			p{
+				margin-bottom: 0;
+			}
+
+		}
+	}
+
+}
+
+// ===== SECTION BREAK =====
+section.section-break{
+	padding: 75px 0;
+	background-color: #f0f0f0;
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	@include mobile{
+		background-size: 900px;
+		padding: 35px 0;
+	}
+}
+section.section-break--services{
+	background-image: url(../img/services_break.jpg); 
+}
+
+section.section-break--software{
+	background-image: url(../img/software_break.jpg); 
+}
+
+section.section-break--careers{
+	background-image: url(../img/careers_break.jpg); 
+
+	body.careers &{
+		background-image: url(../img/careers/team_image.jpg); 		
+	}
+}
+
+// JOBS
+section.job-listing{
+
+	.job-listing-row{
+		margin-bottom: 50px;
+		margin-top: 50px;
+
+		.job-listing-single{
+			padding: 25px;
+			border: 1px solid $light-gray;
+			width: 90%;
+			margin: 0 auto;
+			display: block;
+			margin-bottom: 30px;
+
+			@include desktop{
+				text-align:left;
+				max-width: 1000px;
+				display: table;
+				table-layout: fixed;
+			}
+
+			.job-listing-col{
+				width: 100%;
+				display: block;
+
+				@include desktop{
+					display: table-cell;
+					vertical-align: middle;
+				}
+			}
+
+			.job-listing-meta{
+				width: 100%;
+				margin-bottom: 25px;
+
+				@include desktop{
+					width: 70%;
+					margin-bottom: 0;
+				}
+			}
+
+			.job-listing-link{
+				width: 100%;
+				@include desktop{
+					text-align: right;
+					width: 30%;
+				}
+			}
+
+			p{	
+				color: #333c4e;
+				margin: 0;
+				margin-bottom: 2px;
+
+				&.job-listing-location{
+					color: #7e8890;
+				}
+			}
+
+			h4{
+				color: #333c4e;
+				margin: 0;
+				margin-bottom: 2px;
+			}
+
+			.job-posting-id{
+				color: #7e8890;
+			    font-size: 16px;
+			    margin-left: 20px;
+			    display: inline-block;
+			}
+
+
+		}
+
+	}
+	
+}
+
+// ===== CONTACT =====
+
+section.contact-map{
+	height: 400px;
+	padding: 0;
+
+		#map{
+			width: 100%;
+			height: 400px;
+			background-color: #eee;
+		}
+}
+
+.contact-icons{
+	a{
+		display: inline-block;
+	}
+	img{
+		margin-bottom: 50px;
+	}
+}
+
+.contact-callout{
+	margin: 50px auto;
+}
+
+
+// ===== FOOTER ===== 
+footer{
+	position: relative;
+	padding: 50px 0;
+	text-align: center;
+	background: $primary-dark;
+	color: $white;
+
+	a{
+		color: $white;
+	}
+
+	.footer-utility{
+		margin-bottom: 50px;
+		.branding{
+			display: block;
+			margin-bottom: 30px;
+
+			a{
+				display: block;
+				margin-bottom: 10px;
+				font-weight: 300;
+				text-align: left;
+			}
+
+			p{	
+				text-align: left;
+				margin-bottom: 10px;
+			}
+		}
+		.socials{
+			display: block;
+			margin-bottom: 30px;
+
+			a{
+				padding: 0 10px;
+			}
+		}
+
+		@include tablet{
+			.branding{
+				display: inline-block;
+				float: left;
+				margin-bottom: 0;
+			}
+
+			.socials{
+				display: inline-block;
+				float: right;
+				margin-bottom: 0;
+			}			
+		}
+	}
+}
